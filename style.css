@@ -1,5 +1,6 @@
 body{
     background-color: #e6ecf0;
+     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #main{
     display: grid;
@@ -9,28 +10,40 @@ body{
 }
 #posts{
     grid-column: 2;
-    border: 2px solid red;
+  
     height: 800px;
     grid-row: 2;
     
     text-align: center;
 }
 aside{
+   
     grid-column: 3;
     grid-row: 2;
     
-    border: 2px solid red;
+   
 }
 #profile{
     grid-column: 1;
     grid-row: 2;
-    border: 2px solid red;
+   
+    padding: 10px;
+    text-align: center;
+    position: relative;
 }
 #header{
     grid-column: 1/4;
     grid-row: 1/2;
     height: 50px;
-    border: 2px solid blue;
+    background-color:#4266b2;
+      position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  line-height: 50px;
+  z-index: 100;
 }
 #new_post{
     width: 80%;
@@ -58,25 +71,77 @@ aside{
     width: 10%;
     border-radius: 50px;
 }
+.friend_avatar{
+    width: 30%;
+     border-radius: 50px;
+}
+.post_image{
+    margin-top: 10px;
+    width: 100%;
+}
+#own_avatar{
+    margin: 20px;
+    width: 80%;
+    border-radius: 50px;
+}
 .author{
     display: flex;
     margin-bottom: 10px;
     height: 60px;
+     z-index: 1;
   
 }
 .author_name{
     margin-left: 8px;
+     z-index: 1;
 }
 .post{
-    margin: 12px 6px ;
-   
+    margin: 16px 6px ;
+    border-bottom: 1px solid black;
      padding: 2px;
      background-color: white;
 }
 #previous_posts{
     margin: 2px;
-    margin-top: 30px;
-    border: 2px solid green;
+  
+    background-color: white;
   
     text-align: left;
+}
+#karma{
+    margin-top: 14px;
+    text-align: left;
+    font-size: 1.1em;
+}
+#karmacount{
+  
+    color: #1ea1f2;
+}
+#blue-top{
+    background-color: #1ea1f2;
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+
+}
+#friends{
+    margin-top: 8px;
+}
+.friend{
+    padding: 4px;
+    display: flex;
+    height: 60px;
+}
+.friend_name{
+    position: relative;
+    top: 16px;
+    left: 8px;
+}
+.friend:hover{
+    background-color: #b8bcbf;
 }
