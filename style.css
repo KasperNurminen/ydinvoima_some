@@ -1,6 +1,6 @@
 body{
-    background-color: #e6ecf0;
-     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #FFF9EB;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 #main{
     display: grid;
@@ -10,23 +10,22 @@ body{
 }
 #posts{
     grid-column: 2;
-  
     height: 800px;
     grid-row: 2;
-    
     text-align: center;
+
 }
 aside{
-   
+
     grid-column: 3;
     grid-row: 2;
     
-   
+
 }
 #profile{
     grid-column: 1;
     grid-row: 2;
-   
+
     padding: 10px;
     text-align: center;
     position: relative;
@@ -35,19 +34,19 @@ aside{
     grid-column: 1/4;
     grid-row: 1/2;
     height: 50px;
-    background-color:#4266b2;
-      position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  text-align: center;
-  color: white;
-  font-size: 30px;
-  line-height: 50px;
-  z-index: 100;
+    background-color:#8C7765;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    line-height: 50px;
+    z-index: 100;
 }
 #new_post{
     width: 80%;
-    padding: 20px 20px;
+    padding: 10px 20px;
     margin: 6px 4px;
     padding-top: 10px;
     border: 1px solid #ccc;
@@ -58,10 +57,14 @@ aside{
     height: 50px;
     font-size: 1.1em;
 
+
 }
 #post_outline{
-    background-color: #e9f5fd;
-    height: 60px;
+    background-color: #F2E0C9;
+    height: 70px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+
 }
 #avatar{
     height: 60px;
@@ -73,7 +76,7 @@ aside{
 }
 .friend_avatar{
     width: 30%;
-     border-radius: 50px;
+    border-radius: 50px;
 }
 .post_image{
     margin-top: 10px;
@@ -88,25 +91,24 @@ aside{
     display: flex;
     margin-bottom: 10px;
     height: 60px;
-     z-index: 1;
-  
+    z-index: 1;
+
 }
 .author_name{
     margin-left: 8px;
-     z-index: 1;
+    z-index: 1;
 }
 .post{
     margin: 16px 6px ;
     border-bottom: 1px solid black;
-     padding: 2px;
-     background-color: white;
+    padding: 5px;
+    background-color: white;
 }
 #previous_posts{
     margin: 2px;
-  
     background-color: white;
-  
     text-align: left;
+
 }
 #karma{
     margin-top: 14px;
@@ -114,12 +116,12 @@ aside{
     font-size: 1.1em;
 }
 #karmacount{
-  
+
     color: #1ea1f2;
 }
 #blue-top{
-    background-color: #1ea1f2;
-    height: 80px;
+    background-color: #D9C3A9;
+    height: 95px;
     margin: 0;
     padding: 0;
     position: absolute;
@@ -131,6 +133,7 @@ aside{
 }
 #friends{
     margin-top: 8px;
+    background-color: white;
 }
 .friend{
     padding: 4px;
@@ -144,4 +147,29 @@ aside{
 }
 .friend:hover{
     background-color: #b8bcbf;
+}
+
+#thumbs{
+    padding-left: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.event_avatar{
+    width: 30%;
+}
+
+#events{
+    margin-top: 8px;
+    background-color: white;
+}
+.event{
+    padding: 4px;
+    display: flex;
+    height: 60px;
+}
+.event_name{
+    position: relative;
+    top: 10px;
+    left: 8px;
 }
