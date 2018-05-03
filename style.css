@@ -13,19 +13,19 @@ body{
     height: 800px;
     grid-row: 2;
     text-align: center;
-
+    
 }
 aside{
-
+    
     grid-column: 3;
     grid-row: 2;
     
-
+    
 }
 #profile{
     grid-column: 1;
     grid-row: 2;
-
+    
     padding: 10px;
     text-align: center;
     position: relative;
@@ -56,15 +56,15 @@ aside{
     line-height: 50px;
     height: 50px;
     font-size: 1.1em;
-
-
+    
+    
 }
 #post_outline{
     background-color: #F2E0C9;
     height: 70px;
     padding-top: 15px;
     padding-bottom: 10px;
-
+    
 }
 #avatar{
     height: 60px;
@@ -92,7 +92,7 @@ aside{
     margin-bottom: 10px;
     height: 60px;
     z-index: 1;
-
+    
 }
 .author_name{
     margin-left: 8px;
@@ -108,7 +108,7 @@ aside{
     margin: 2px;
     background-color: white;
     text-align: left;
-
+    
 }
 #karma{
     margin-top: 14px;
@@ -116,7 +116,7 @@ aside{
     font-size: 1.1em;
 }
 #karmacount{
-
+    
     color: #1ea1f2;
 }
 #blue-top{
@@ -129,7 +129,7 @@ aside{
     top: 0;
     left: 0;
     z-index: 0;
-
+    
 }
 #friends{
     margin-top: 8px;
@@ -139,6 +139,7 @@ aside{
     padding: 4px;
     display: flex;
     height: 60px;
+    cursor: pointer;
 }
 .friend_name{
     position: relative;
@@ -148,6 +149,7 @@ aside{
 .friend:hover{
     background-color: #b8bcbf;
 }
+
 
 #thumbs{
     padding-left: 50%;
@@ -172,4 +174,61 @@ aside{
     position: relative;
     top: 10px;
     left: 8px;
+}
+#message{
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    right: 140px;
+    bottom: 0px;
+    border: 2px solid black;
+    display: none;
+
+}
+#message_top{
+    background-color: #1ea1f2;
+    text-align: center;
+    height: 30px;
+    font-size: 1.4em;
+}
+#messages_container{
+    height: 300px;
+    overflow: scroll;
+}
+#message_input{
+    width: 290px;
+    padding: 20px 20px;
+    margin: 6px 4px;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    line-height: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 2px;
+    position: fixed;
+}
+
+.speech-bubble {
+    background-color: #f8f8f8;
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    width: 110px;
+    text-align: center;
+    padding: 6px;
+    width: 60%;
+    margin-top: 6px;
+    float: left;  
+}
+.right {
+    float: right;    
+}
+#closeButton {
+    float: right; 
+    margin: 4px 6px; 
+    cursor: pointer;
+    position: relative;
+    bottom: 26px;
 }

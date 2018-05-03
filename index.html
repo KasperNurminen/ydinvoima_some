@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C" crossorigin="anonymous"></script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C"
+        crossorigin="anonymous"></script>
+
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -42,7 +46,10 @@
                     </div>
                     Tässä näemme kuvamateriaalia ydinvoimalasta.
                     <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">
-                    <div id="thumbs"> <i class="fas fa-chevron-up fa-2x"></i><i class="fas fa-chevron-down fa-2x"></i></div>
+                    <div id="thumbs">
+                        <i class="fas fa-chevron-up fa-2x"></i>
+                        <i class="fas fa-chevron-down fa-2x"></i>
+                    </div>
                 </div>
                 <div class="post">
                     <div class="author">
@@ -55,7 +62,10 @@
 
                     Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and
                     the space between them represents the grid line.
-                    <div id="thumbs"> <i class="fas fa-chevron-up fa-2x"></i><i class="fas fa-chevron-down fa-2x"></i></div>
+                    <div id="thumbs">
+                        <i class="fas fa-chevron-up fa-2x"></i>
+                        <i class="fas fa-chevron-down fa-2x"></i>
+                    </div>
                 </div>
                 <div class="post">
                     <div class="author">
@@ -68,46 +78,65 @@
 
                     Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and
                     the space between them represents the grid line.
-                    <div id="thumbs"> <i class="fas fa-chevron-up fa-2x"></i><i class="fas fa-chevron-down fa-2x"></i></div>
+                    <div id="thumbs">
+                        <i class="fas fa-chevron-up fa-2x"></i>
+                        <i class="fas fa-chevron-down fa-2x"></i>
+                    </div>
                 </div>
             </div>
         </div>
         <aside>
             Kaverit
             <div id="friends">
-                <div class="friend">
+                <div class="friend" onclick="openChat(this)">
                     <img class="friend_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                     <div class="friend_name"> Kasper Kylteri</div>
                 </div>
-                <div class="friend">
+                <div class="friend" onclick="openChat(this)">
                     <img class="friend_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                     <div class="friend_name"> Aili Arkkari</div>
                 </div>
-                <div class="friend">
+                <div class="friend" onclick="openChat(this)">
                     <img class="friend_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                     <div class="friend_name"> Naili Narkkari</div>
                 </div>
             </div>
             <br>
-            <br>
-            Häppeningit
+            <br> Häppeningit
             <div id="events">
                 <div class="event">
                     <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
-                    <div class="event_name"> Ydinräjähdys <br> <i> Ehkä huomenna </i> </div>
+                    <div class="event_name"> Ydinräjähdys
+                        <br>
+                        <i> Ehkä huomenna </i>
+                    </div>
 
                 </div>
                 <div class="event">
                     <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
-                    <div class="event_name"> Ydinsota <br> <i> Ylihuomenna </i> </div>
+                    <div class="event_name"> Ydinsota
+                        <br>
+                        <i> Ylihuomenna </i>
+                    </div>
                 </div>
                 <div class="event">
                     <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
-                    <div class="event_name"> Ydinkuolema  <br> <i> Ensi vuonna </i> </div>
+                    <div class="event_name"> Ydinkuolema
+                        <br>
+                        <i> Ensi vuonna </i>
+                    </div>
                 </div>
             </div>
 
         </aside>
+        <div id="message">
+            <div id="message_top">Naili Narkkari</div>
+            <i id="closeButton" onClick="closeMessage()" class="fas fa-window-close"></i>
+            <div id="messages_container"></div>
+            <input id="message_input" type="text" onkeydown="sendMessage(this)" placeholder=" Kirjoita viesti... ">
+
+        </div>
+    </div>
     </div>
 </body>
 
