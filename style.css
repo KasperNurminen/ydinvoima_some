@@ -1,0 +1,82 @@
+body{
+    background-color: #e6ecf0;
+}
+#main{
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 20% 58% 20%;
+    grid-template-rows: 30% auto;
+}
+#posts{
+    grid-column: 2;
+    border: 2px solid red;
+    height: 800px;
+    grid-row: 2;
+    
+    text-align: center;
+}
+aside{
+    grid-column: 3;
+    grid-row: 2;
+    
+    border: 2px solid red;
+}
+#profile{
+    grid-column: 1;
+    grid-row: 2;
+    border: 2px solid red;
+}
+#header{
+    grid-column: 1/4;
+    grid-row: 1/2;
+    height: 50px;
+    border: 2px solid blue;
+}
+#new_post{
+    width: 80%;
+    padding: 20px 20px;
+    margin: 6px 4px;
+    padding-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    float: right;
+    line-height: 50px;
+    height: 50px;
+    font-size: 1.1em;
+
+}
+#post_outline{
+    background-color: #e9f5fd;
+    height: 60px;
+}
+#avatar{
+    height: 60px;
+    border-radius: 50px;
+}
+.post_avatar{
+    width: 10%;
+    border-radius: 50px;
+}
+.author{
+    display: flex;
+    margin-bottom: 10px;
+    height: 60px;
+  
+}
+.author_name{
+    margin-left: 8px;
+}
+.post{
+    margin: 12px 6px ;
+   
+     padding: 2px;
+     background-color: white;
+}
+#previous_posts{
+    margin: 2px;
+    margin-top: 30px;
+    border: 2px solid green;
+  
+    text-align: left;
+}
