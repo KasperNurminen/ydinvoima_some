@@ -33,7 +33,7 @@
         <div id="posts">
             <div id="post_outline">
                 <img id="avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
-                <input type="text" id="new_post" placeholder="Mitä mielessä?" />
+                <input type="text" onkeydown="newPost(this)" id="new_post" placeholder="Mitä mielessä?" />
             </div>
             <div id="previous_posts">
                 <div class="post">
@@ -41,14 +41,17 @@
                         <img class="post_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                         <div class="author_name"> Tiina Teekkari
                             <br/>
-                            <i>Juuri äsken </i>
+                            <i>30 minuuttia sitten </i>
                         </div>
                     </div>
                     Tässä näemme kuvamateriaalia ydinvoimalasta.
                     <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">
+
                     <div id="thumbs">
-                        <i class="fas fa-chevron-up fa-2x"></i>
-                        <i class="fas fa-chevron-down fa-2x"></i>
+
+                        <i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer"></i>
+                        <i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i>
+                        <span>Peukkuja: 0 </span>
                     </div>
                 </div>
                 <div class="post">
@@ -63,8 +66,9 @@
                     Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and
                     the space between them represents the grid line.
                     <div id="thumbs">
-                        <i class="fas fa-chevron-up fa-2x"></i>
-                        <i class="fas fa-chevron-down fa-2x"></i>
+                        <i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer"></i>
+                        <i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i>
+                        <span>Peukkuja: 14 </span>
                     </div>
                 </div>
                 <div class="post">
@@ -79,8 +83,9 @@
                     Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and
                     the space between them represents the grid line.
                     <div id="thumbs">
-                        <i class="fas fa-chevron-up fa-2x"></i>
-                        <i class="fas fa-chevron-down fa-2x"></i>
+                        <i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer"></i>
+                        <i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i>
+                        <span>Peukkuja: 87 </span>
                     </div>
                 </div>
             </div>

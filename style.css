@@ -153,6 +153,7 @@ aside{
 
 #thumbs{
     padding-left: 50%;
+    padding-right: 14%;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -185,6 +186,9 @@ aside{
     border: 2px solid black;
     display: none;
 
+}
+.pointer{
+    cursor: pointer;
 }
 #message_top{
     background-color: #1ea1f2;
