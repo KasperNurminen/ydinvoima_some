@@ -250,3 +250,18 @@ transform: translateX(-50%);
     border: 2px solid black;
     background-color: white;
 }
+
+@media only screen and (max-width : 780px) {
+    #main{
+           display: block;
+    }
+    aside{
+        display: none;
+    }
+    #profile{
+        display: none;
+    }
+    #new_post{
+        width: 55%;
+    }
+}
