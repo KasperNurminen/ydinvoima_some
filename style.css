@@ -236,3 +236,17 @@ aside{
     position: relative;
     bottom: 26px;
 }
+#dialog{
+    display: none;
+    text-align: center;
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    z-index: 100;
+    margin: auto;
+    left: 50%;
+transform: translateX(-50%);
+    top: 20%;
+    border: 2px solid black;
+    background-color: white;
+}

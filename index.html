@@ -109,27 +109,37 @@
             <br>
             <br> Häppeningit
             <div id="events">
-                <div class="event">
+                <div class="event friend" onclick="openHappening(this)">
                     <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
-                    <div class="event_name"> Ydinräjähdys
+                    <div class="event_name">Ydinräjähdys
                         <br>
                         <i> Ehkä huomenna </i>
                     </div>
 
                 </div>
-                <div class="event">
+                <div class="event friend" onclick="openHappening(this)">
                     <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
-                    <div class="event_name"> Ydinsota
+                    <div class="event_name">Ydinsota
                         <br>
                         <i> Ylihuomenna </i>
                     </div>
                 </div>
-                <div class="event">
+                <div class="event friend" onclick="openHappening(this)">
                     <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
-                    <div class="event_name"> Ydinkuolema
+                    <div class="event_name">Ydinsaasteen keräysilta
                         <br>
                         <i> Ensi vuonna </i>
                     </div>
+                </div>
+                <div id="dialog">
+                    <i style="float: right;" onClick="closeHappeningDialog()" class="fas fa-window-close fa-2x pointer"></i>
+                    <h2 id="happeningName">Ydinsota</h2>
+
+                    <img class="event_avatar" src="https://crow.org.nz/sites/default/files/inline-images/13%20Event%20Image%20Place%20Holder_0.png">
+                    <p> Järjestäjä: Ydinvoiman vihaajat ry </p>
+                    <p> Paikka: Suomi </p>
+                    <p> Ota mukaan oma ydinaseesi (BYONW)</p>
+
                 </div>
             </div>
 

@@ -1,6 +1,7 @@
 
 function sendMessage(ele) {
     if (event.key == "Enter") {
+
         var msg_ele = document.createElement("div")
         var ele_txt = document.createTextNode(ele.value)
         msg_ele.appendChild(ele_txt)
@@ -93,4 +94,14 @@ function substractKarma(ele) {
     //decrement karma
     var karmacount = document.getElementById("karmacount")
     karmacount.innerHTML = parseInt(karmacount.innerHTML) - 10
+}
+function closeHappeningDialog() {
+    document.getElementById("dialog").style.display = "none"
+}
+function openHappening(ele) {
+    var name = ele.children[1].innerHTML.split(" ")[0]
+    console.log(name)
+    //document.getElementById("message_top").innerHTML = ele.children[1].innerHTML
+    document.getElementById("dialog").style.display = "block"
+    document.getElementById("happeningName").innerHTML = name
 }
