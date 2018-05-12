@@ -1,3 +1,14 @@
+moment.locale("fi")
+
+window.onload = function (e) {
+    fetch("posts.json")
+        .then((resp) => resp.json())
+        .then(function (data) {
+            for (post of data.reverse()) {
+                createPost(post.author, post.message, post.date, post.thumbs, post.src)
+            }
+        })
+}
 
 function sendMessage(ele) {
     if (event.key == "Enter") {
@@ -41,7 +52,29 @@ function openChat(ele) {
     document.getElementById("message_top").innerHTML = ele.children[1].innerHTML
     document.getElementById("message").style.display = "block"
 }
+function createPost(author, msg, time, thumbs, src) {
 
+    var msg_ele = document.createElement("div")
+    var ele_txt = document.createTextNode(msg)
+    var date = moment(time).calendar()
+    msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src = "http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png" >\
+                <div class="author_name">' + author + '\
+                            <br>\
+                        <i>' + date + '</i>\
+                        </div>\
+                </div>'
+
+    msg_ele.appendChild(ele_txt)
+    if (src) {
+        msg_ele.innerHTML += ' <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">'
+    }
+    msg_ele.innerHTML += '<br/><input type="text" onkeydown="newPost(this)" id="comment_field" placeholder="Kommentoi..." /><div id="thumbs"><i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer" ></i ><i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i><span>Peukkuja: ' + thumbs + ' </span></div >'
+    msg_ele.classList.add("post")
+    var container = document.getElementById("previous_posts")
+    container.prepend(msg_ele)
+
+
+}
 function newPost(ele) {
     if (event.key == "Enter") {
         var msg_ele = document.createElement("div")

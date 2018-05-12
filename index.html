@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="style.css" />
-
+    <script src="moment.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C"
         crossorigin="anonymous"></script>
 
@@ -30,14 +30,14 @@
                 </div>
             </div>
         </div>
-        <div id="posts">
+        <div onLoad="onMainLoad()" id="posts">
             <div id="post_outline">
                 <img id="avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                 <input type="text" onkeydown="newPost(this)" id="new_post" placeholder="Mitä mielessä?" />
             </div>
             <div id="previous_posts">
-                <div class="post">
-                    <div class="author">
+                <!--<div class="post">
+                  <div class="author">
                         <img class="post_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                         <div class="author_name"> Tiina Teekkari
                             <br/>
@@ -89,7 +89,7 @@
                         <i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i>
                         <span>Peukkuja: 87 </span>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <aside>
