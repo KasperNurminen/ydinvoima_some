@@ -5,21 +5,25 @@ window.onload = updatePosts()
 
 function updatePosts(e) {
     // updates the posts from firebase
+
+
+
     database.ref('/').once('value')
         .then(function (data) {
+            document.getElementById("previous_posts").innerHTML = "" // clear previous
             // data = firebase data
             var data_array = []
             var data_val = data.val()
             for (var key in data_val) {
                 // turn it into a array
-                console.log(key)
                 data_array.push(data_val[key])
             }
 
-            console.log(data_array)
-            for (post of data_array) {
+            for (index in data_array) {
+                console.log(post)
+                var post = data_array[index]
                 // create posts to the UI
-                createPost(post.author, post.message, post.date, post.thumbs, post.src)
+                createPost(post.author, post.message, post.date, post.thumbs, post.src, post.comments, index)
 
             }
         })
@@ -69,7 +73,7 @@ function openChat(ele) {
     document.getElementById("message_top").innerHTML = ele.children[1].innerHTML
     document.getElementById("message").style.display = "block"
 }
-function createPost(author, msg, time, thumbs, src) {
+function createPost(author, msg, time, thumbs, src, comments, index) {
     // creates a post to the UI
     var msg_ele = document.createElement("div")
     var ele_txt = document.createTextNode(msg)
@@ -85,12 +89,50 @@ function createPost(author, msg, time, thumbs, src) {
     if (src) {
         msg_ele.innerHTML += ' <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">'
     }
-    msg_ele.innerHTML += '<br/><input type="text" onkeydown="newPost(this)" id="comment_field" placeholder="Kommentoi..." /><div id="thumbs"><i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer" ></i ><i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i><span>Peukkuja: ' + thumbs + ' </span></div >'
+    if (comments) {
+        var data_array = []
+        for (var key in comments) {
+            // turn it into a array
+            data_array.push(comments[key])
+        }
+
+        for (comment of data_array) {
+            msg_ele.innerHTML += `<div class="comments">
+                <div class="comment ` + (comment.own ? "comment_reply" : "") + `">
+                    <div class="comment_avatar">
+                        <img src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
+                        </div>
+                        <div class="comment_body">
+                            <div class="comment_info">` + comment.author + ` <i> ` + moment(comment.date).calendar() + `</i></div>
+                            <p>` + comment.message + `</p>
+                        </div>
+                    </div>
+
+                    
+
+
+
+                    </div>`
+        }
+    }
+    msg_ele.innerHTML += '<br/><input type="text" onkeydown="newComment(this,' + index + ')" id="comment_field" placeholder="Kommentoi..." /><div id="thumbs"><i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer" ></i ><i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i><span>Peukkuja: ' + thumbs + ' </span></div >'
     msg_ele.classList.add("post")
     var container = document.getElementById("previous_posts")
     container.prepend(msg_ele)
 
 
+}
+function newComment(ele, index) {
+    if (event.key == "Enter") {
+        var linkData = {
+            "author": "Ykä Ydinvoimamies",
+            "message": ele.value,
+            "date": new Date().toISOString(),
+            "own": true
+        }
+        database.ref("/" + index).child("comments").push(linkData);
+        updatePosts()
+    }
 }
 function newPost(ele) {
     // updates firebase, increases karma and runs updatePosts()

@@ -10,7 +10,14 @@
         "date": "2018-05-09 19:30",
         "src": "http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg",
         "message": "Tässä kuvamateriaalia ydinvoimalasta.",
-        "thumbs": 12
+        "thumbs": 12,
+        "comments": [
+            {
+                "author": "Tiina Teekkari",
+                "date": "2018-05-09 20:30",
+                "message": "Hyvä kuva!"
+            }
+        ]
     },
     {
         "author": "Tiina Teekkari",
