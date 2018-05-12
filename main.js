@@ -1,20 +1,24 @@
-moment.locale("fi")
-var database = firebase.database();
+moment.locale("fi") // set moment language
+var database = firebase.database(); // initialize database connection
 
 window.onload = updatePosts()
 
 function updatePosts(e) {
+    // updates the posts from firebase
     database.ref('/').once('value')
         .then(function (data) {
+            // data = firebase data
             var data_array = []
             var data_val = data.val()
             for (var key in data_val) {
+                // turn it into a array
                 console.log(key)
                 data_array.push(data_val[key])
             }
 
             console.log(data_array)
             for (post of data_array) {
+                // create posts to the UI
                 createPost(post.author, post.message, post.date, post.thumbs, post.src)
 
             }
@@ -23,6 +27,7 @@ function updatePosts(e) {
 }
 
 function sendMessage(ele) {
+    // sends private messages
     if (event.key == "Enter") {
 
         var msg_ele = document.createElement("div")
@@ -38,6 +43,7 @@ function sendMessage(ele) {
     }
 }
 function respond() {
+    // automatic responses to private messages
     var container = document.getElementById("messages_container")
     var ele_txt = document.createTextNode("No moi!")
     if (container.children.length == 3) {
@@ -56,7 +62,6 @@ function respond() {
 
 }
 function closeMessage() {
-    console.log("closing")
     document.getElementById("message").style.display = "none"
 }
 function openChat(ele) {
@@ -65,7 +70,7 @@ function openChat(ele) {
     document.getElementById("message").style.display = "block"
 }
 function createPost(author, msg, time, thumbs, src) {
-
+    // creates a post to the UI
     var msg_ele = document.createElement("div")
     var ele_txt = document.createTextNode(msg)
     var date = moment(time).calendar()
@@ -88,6 +93,7 @@ function createPost(author, msg, time, thumbs, src) {
 
 }
 function newPost(ele) {
+    // updates firebase, increases karma and runs updatePosts()
     if (event.key == "Enter") {
 
         var linkData = {
@@ -100,19 +106,7 @@ function newPost(ele) {
 
         database.ref().push(linkData);
         updatePosts()
-        /*var msg_ele = document.createElement("div")
-        var ele_txt = document.createTextNode(ele.value)
-        msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src = "http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png" >\
-                <div class="author_name"> Ykä Ydinvoimamies\
-                            <br>\
-                        <i>Juuri äsken </i>\
-                        </div>\
-                </div>'
-        msg_ele.appendChild(ele_txt)
-        msg_ele.innerHTML += '<div id="thumbs"><i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer" ></i ><i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i><span>Peukkuja: 0 </span></div >'
-        msg_ele.classList.add("post")
-        var container = document.getElementById("previous_posts")
-        container.prepend(msg_ele)*/
+
         // add karma
         var karmacount = document.getElementById("karmacount")
         karmacount.innerHTML = parseInt(karmacount.innerHTML) + 20
@@ -157,7 +151,6 @@ function closeHappeningDialog() {
 function openHappening(ele) {
     var name = ele.children[1].innerHTML.split(" ")[0]
     console.log(name)
-    //document.getElementById("message_top").innerHTML = ele.children[1].innerHTML
     document.getElementById("dialog").style.display = "block"
     document.getElementById("happeningName").innerHTML = name
 }
