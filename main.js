@@ -1,13 +1,25 @@
 moment.locale("fi")
+var database = firebase.database();
 
-window.onload = function (e) {
-    fetch("posts.json")
-        .then((resp) => resp.json())
+window.onload = updatePosts()
+
+function updatePosts(e) {
+    database.ref('/').once('value')
         .then(function (data) {
-            for (post of data.reverse()) {
+            var data_array = []
+            var data_val = data.val()
+            for (var key in data_val) {
+                console.log(key)
+                data_array.push(data_val[key])
+            }
+
+            console.log(data_array)
+            for (post of data_array) {
                 createPost(post.author, post.message, post.date, post.thumbs, post.src)
+
             }
         })
+
 }
 
 function sendMessage(ele) {
@@ -77,7 +89,18 @@ function createPost(author, msg, time, thumbs, src) {
 }
 function newPost(ele) {
     if (event.key == "Enter") {
-        var msg_ele = document.createElement("div")
+
+        var linkData = {
+            "author": "Ykä Ydinvoimamies",
+            "message": ele.value,
+            "date": new Date().toISOString(),
+            "thumbs": 0
+        }
+
+
+        database.ref().push(linkData);
+        updatePosts()
+        /*var msg_ele = document.createElement("div")
         var ele_txt = document.createTextNode(ele.value)
         msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src = "http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png" >\
                 <div class="author_name"> Ykä Ydinvoimamies\
@@ -89,7 +112,7 @@ function newPost(ele) {
         msg_ele.innerHTML += '<div id="thumbs"><i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer" ></i ><i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i><span>Peukkuja: 0 </span></div >'
         msg_ele.classList.add("post")
         var container = document.getElementById("previous_posts")
-        container.prepend(msg_ele)
+        container.prepend(msg_ele)*/
         // add karma
         var karmacount = document.getElementById("karmacount")
         karmacount.innerHTML = parseInt(karmacount.innerHTML) + 20
