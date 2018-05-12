@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
     <script src="moment.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C"
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
     <script>
         // Initialize Firebase
@@ -49,25 +49,48 @@
                 <input type="text" onkeydown="newPost(this)" id="new_post" placeholder="Mitä mielessä?" />
             </div>
             <div id="previous_posts">
-                <!--<div class="post">
+                <div class="post">
                   <div class="author">
-                        <img class="post_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
-                        <div class="author_name"> Tiina Teekkari
-                            <br/>
-                            <i>30 minuuttia sitten </i>
-                        </div>
-                    </div>
-                    Tässä näemme kuvamateriaalia ydinvoimalasta.
-                    <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">
-
-                    <input type="text" onkeydown="newPost(this)" id="comment_field" placeholder="Kommentoi..." />
-                    <div id="thumbs">
-                        <i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer"></i>
-                        <i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i>
-                        <span>Peukkuja: 0 </span>
+                    <img class="post_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
+                    <div class="author_name"> Tiina Teekkari
+                        <br/>
+                        <i>30 minuuttia sitten </i>
                     </div>
                 </div>
-                <div class="post">
+                Tässä näemme kuvamateriaalia ydinvoimalasta.
+                <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">
+                <div class="comments">
+                    <div class="comment">
+                        <div class="comment_avatar">
+                            <img src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
+                        </div>
+                        <div class="comment_body">
+                            <div class="comment_info">Tiina Teekkari 2min sitten: </div>
+                            <p>Lorem Ipsum on yksinkertaisesti testausteksti, jota tulostus- ja ladontateollisuudet käyttävät. Lorem Ipsum on ollut teollisuuden normaali testausteksti jo 1500-luvulta asti, jolloin tuntematon tulostaja otti kaljuunan ja sekoitti sen tehdäkseen esimerkkikirjan.</p>
+                        </div>
+                    </div>
+
+                     <div class="comment comment_reply">
+                        <div class="comment_avatar">
+                            <img src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
+                        </div>
+                        <div class="comment_body">
+                            <div class="comment_info">Joku Random 2min sitten: </div>
+                            <p>Lorem Ipsum on yksinkertaisesti testausteksti, jota tulostus- ja ladontateollisuudet käyttävät. Lorem Ipsum on ollut teollisuuden normaali testausteksti jo 1500-luvulta asti, jolloin tuntematon tulostaja otti kaljuunan ja sekoitti sen tehdäkseen esimerkkikirjan.</p>
+                        </div>
+                    </div>
+                
+
+                    
+                </div>
+                <input type="text" onkeydown="newPost(this)" id="comment_field" placeholder="Kommentoi..." />
+                <div id="thumbs">
+                    <i onClick="addKarma(this)" class="fas fa-chevron-up fa-2x pointer"></i>
+                    <i onClick="substractKarma(this)" class="fas fa-chevron-down fa-2x pointer"></i>
+                    <span>Peukkuja: 0 </span>
+                </div>
+            </div>
+                <!--<div class="post">
                     <div class="author">
                         <img class="post_avatar" src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
                         <div class="author_name"> Teemu Teekkari
@@ -167,7 +190,7 @@
 
         </div>
     </div>
-    </div>
+</div>
 </body>
 
 </html>

@@ -228,6 +228,8 @@ aside{
     position: fixed;
 }
 
+
+
 .speech-bubble {
     background-color: #f8f8f8;
     border: 1px solid #c8c8c8;
@@ -238,7 +240,8 @@ aside{
     width: 60%;
     margin-top: 6px;
     float: left;  
-}
+} 
+
 .right {
     float: right;    
 }
@@ -263,6 +266,57 @@ aside{
     border: 2px solid black;
     background-color: white;
 }
+
+.comments{
+    margin-top: 10px;
+    width: 90%;
+}
+
+.comment{
+    padding: 10px 10px 10px 10px;
+    background: #FFF9EB;
+    border: 2px solid #efe9dc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.comment_reply {
+    margin-left: 5%;
+    border: 2px solid #d6d4d4;
+    background: #eee;
+    margin-top: 5px;
+}
+
+.comment:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.comment_avatar {
+    float: left;
+    width: 65px;
+}
+
+.comment_avatar img{
+    width: 65px;
+    border-radius: 50px;
+}
+
+.comment_body {
+    float: left;
+    width: 80%;
+}
+.comment_body p {
+    margin-top: 10px;
+}
+
+.comment_info {
+    font-weight: bold;
+
+}
+
+
 
 @media only screen and (max-width : 780px) {
     #main{
