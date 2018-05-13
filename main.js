@@ -12,7 +12,7 @@ function updatePosts(e) {
         .then(function (data) {
             document.getElementById("previous_posts").innerHTML = "" // clear previous
             // data = firebase data
-
+            document.querySelector(".spinner").style.display = "none" // hide the loading icon
             var data_val = data.val()
 
 

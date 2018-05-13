@@ -1,3 +1,12 @@
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
 body{
     background-color: #FFF9EB;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -120,6 +129,15 @@ aside{
     border-bottom: 1px solid black;
     padding: 5px;
     background-color: white;
+}
+.spinner{
+    background-color: #FFF9EB;
+    text-align: center;
+    margin: 4px;
+    animation-duration: 2000ms;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 #previous_posts{
     margin: 2px;
