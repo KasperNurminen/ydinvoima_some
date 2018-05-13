@@ -1,6 +1,6 @@
 moment.locale("fi") // set moment language
 var database = firebase.database(); // initialize database connection
-
+var numOfPosts = 0
 window.onload = updatePosts()
 
 function updatePosts(e) {
@@ -12,20 +12,16 @@ function updatePosts(e) {
         .then(function (data) {
             document.getElementById("previous_posts").innerHTML = "" // clear previous
             // data = firebase data
-            var data_array = []
-            var data_val = data.val()
-            for (var key in data_val) {
-                // turn it into a array
-                data_array.push(data_val[key])
-            }
 
-            for (index in data_array) {
-                console.log(post)
-                var post = data_array[index]
-                // create posts to the UI
+            var data_val = data.val()
+
+
+            numOfPosts = data_val.length
+            console.log(numOfPosts)
+            data_val.forEach(function (post, index) {
                 createPost(post.author, post.message, post.date, post.thumbs, post.src, post.comments, index)
 
-            }
+            })
         })
 
 }
@@ -146,7 +142,7 @@ function newPost(ele) {
         }
 
 
-        database.ref().push(linkData);
+        database.ref("/" + numOfPosts).set(linkData);
         updatePosts()
 
         // add karma
