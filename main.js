@@ -17,7 +17,6 @@ function updatePosts(e) {
 
 
             numOfPosts = data_val.length
-            console.log(numOfPosts)
             data_val.forEach(function (post, index) {
                 createPost(post.author, post.message, post.date, post.thumbs, post.src, post.avatar_url, post.comments, index)
 
@@ -49,7 +48,6 @@ function respond() {
     if (container.children.length == 3) {
         ele_txt = document.createTextNode("Sori en ehi jutteleen pidempään, pitää mennä!")
     }
-    console.log(container.children.length)
     if (container.children.length < 4) {
         var msg_ele = document.createElement("div")
 
@@ -83,7 +81,7 @@ function createPost(author, msg, time, thumbs, src, avatar_url, comments, index)
 
     msg_ele.appendChild(ele_txt)
     if (src) {
-        msg_ele.innerHTML += ' <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">'
+        msg_ele.innerHTML += ' <img class="post_image" src="' + src + '">'
     }
     if (comments) {
         var data_array = []
@@ -160,9 +158,7 @@ function newPost(ele) {
     }
 }
 function addKarma(ele) {
-    console.log(ele.parentElement.children)
     var prevPoints = ele.parentElement.children[ele.parentElement.children.length - 1]
-    console.log(parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) + 1)
     prevPoints.innerHTML = "Peukkuja: " + (parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) + 1)
     //disable the button
     ele.style.pointerEvents = "none";
@@ -176,9 +172,7 @@ function addKarma(ele) {
     karmacount.innerHTML = parseInt(karmacount.innerHTML) + 10
 }
 function substractKarma(ele) {
-    console.log(ele.parentElement.children)
     var prevPoints = ele.parentElement.children[ele.parentElement.children.length - 1]
-    console.log(parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) + 1)
     prevPoints.innerHTML = "Peukkuja: " + (parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) - 1)
     ele.style.pointerEvents = "none";
     ele.style.color = "grey";
@@ -194,7 +188,6 @@ function closeHappeningDialog() {
 }
 function openHappening(ele) {
     var name = ele.children[1].innerHTML
-    console.log(name)
     document.getElementById("dialog").style.display = "block"
     document.getElementById("happeningName").innerHTML = name
 }
