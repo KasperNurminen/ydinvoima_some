@@ -9,7 +9,8 @@
     <script src="moment.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C"
         crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase-database.js"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -21,7 +22,7 @@
             messagingSenderId: "87824916615"
         };
         firebase.initializeApp(config);
-        firebase.auth().signInAnonymously()
+        //firebase.auth().signInAnonymously()
     </script>
     <script src="main.js"></script>
 </head>
