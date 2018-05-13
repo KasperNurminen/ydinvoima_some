@@ -191,7 +191,7 @@ function closeHappeningDialog() {
     document.getElementById("dialog").style.display = "none"
 }
 function openHappening(ele) {
-    var name = ele.children[1].innerHTML.split(" ")[0]
+    var name = ele.children[1].innerHTML
     console.log(name)
     document.getElementById("dialog").style.display = "block"
     document.getElementById("happeningName").innerHTML = name
