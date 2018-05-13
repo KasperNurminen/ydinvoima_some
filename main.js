@@ -19,7 +19,7 @@ function updatePosts(e) {
             numOfPosts = data_val.length
             console.log(numOfPosts)
             data_val.forEach(function (post, index) {
-                createPost(post.author, post.message, post.date, post.thumbs, post.src, post.comments, index)
+                createPost(post.author, post.message, post.date, post.thumbs, post.src, post.avatar_url, post.comments, index)
 
             })
         })
@@ -69,12 +69,12 @@ function openChat(ele) {
     document.getElementById("message_top").innerHTML = ele.children[1].innerHTML
     document.getElementById("message").style.display = "block"
 }
-function createPost(author, msg, time, thumbs, src, comments, index) {
+function createPost(author, msg, time, thumbs, src, avatar_url, comments, index) {
     // creates a post to the UI
     var msg_ele = document.createElement("div")
     var ele_txt = document.createTextNode(msg)
     var date = moment(time).calendar()
-    msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src = "http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png" >\
+    msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src =' + avatar_url + '>\
                 <div class="author_name">' + author + '\
                             <br>\
                         <i>' + date + '</i>\
@@ -96,10 +96,10 @@ function createPost(author, msg, time, thumbs, src, comments, index) {
             msg_ele.innerHTML += `<div class="comments">
                 <div class="comment ` + (comment.own ? "comment_reply" : "") + `">
                     <div class="comment_avatar">
-                        <img src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
+                        <img src="`+ comment.avatar_url + `">
                         </div>
                         <div class="comment_body">
-                            <div class="comment_info">` + comment.author + ` <i> ` + moment(comment.date).calendar() + `</i></div>
+                            <div class="comment_info" style="cursor: pointer" onClick=respondToPerson("` + comment.author.replace(" ", "-") + `",this)>` + comment.author + ` <i> ` + moment(comment.date).calendar() + `</i></div>
                             <p>` + comment.message + `</p>
                         </div>
                     </div>
@@ -118,13 +118,18 @@ function createPost(author, msg, time, thumbs, src, comments, index) {
 
 
 }
+function respondToPerson(person, ele) {
+    var comment_field = ele.parentElement.parentElement.parentElement.parentElement.querySelector("#comment_field")
+    comment_field.value += "@" + person.split("-")[0] + " " // for example Aili-Arkkari
+}
 function newComment(ele, index) {
     if (event.key == "Enter") {
         var linkData = {
             "author": "Ykä Ydinvoimamies",
             "message": ele.value,
             "date": new Date().toISOString(),
-            "own": true
+            "own": true,
+            "avatar_url": "images/yka.png"
         }
         database.ref("/" + index).child("comments").push(linkData);
         updatePosts()
@@ -138,7 +143,8 @@ function newPost(ele) {
             "author": "Ykä Ydinvoimamies",
             "message": ele.value,
             "date": new Date().toISOString(),
-            "thumbs": 0
+            "thumbs": 0,
+            "avatar_url": "images/yka.png"
         }
 
 

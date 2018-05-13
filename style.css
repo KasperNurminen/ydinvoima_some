@@ -82,14 +82,17 @@ aside{
 }
 #avatar{
     height: 60px;
+    width: 60px;
     border-radius: 50px;
 }
 .post_avatar{
     width: 10%;
+    height: 86%;
     border-radius: 50px;
 }
 .friend_avatar{
     width: 30%;
+    height: 94%;
     border-radius: 50px;
 }
 .post_image{
@@ -167,7 +170,7 @@ aside{
 
 #thumbs{
     margin-top: 14px;
-   
+    
     float: right;
 }
 
@@ -295,16 +298,19 @@ aside{
 .comment_avatar {
     float: left;
     width: 65px;
+    height: 65px;
 }
 
 .comment_avatar img{
     width: 65px;
+    height: 65px;
     border-radius: 50px;
 }
 
 .comment_body {
     float: left;
     width: 80%;
+    margin-left: 8px;
 }
 .comment_body p {
     margin-top: 10px;
@@ -312,7 +318,7 @@ aside{
 
 .comment_info {
     font-weight: bold;
-
+    
 }
 
 

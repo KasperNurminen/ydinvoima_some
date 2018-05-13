@@ -1,9 +1,10 @@
 [
     {
-        "author": "Teemu Teekkari",
+        "author": "Naili Narkkari",
         "date": "2018-05-11 09:30",
         "message": "Ydinvoima on mielestäni hauskin tapa tuottaa sähköä! Isona minusta tulee ydinvoimasuunnittelija! :) ",
-        "thumbs": 54
+        "thumbs": 54,
+        "avatar_url": "images/naili.jpeg"
     },
     {
         "author": "Kasper Kylteri",
@@ -11,18 +12,35 @@
         "src": "http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg",
         "message": "Tässä kuvamateriaalia ydinvoimalasta.",
         "thumbs": 12,
+        "avatar_url": "images/kasper.jpg",
         "comments": [
             {
-                "author": "Tiina Teekkari",
+                "author": "Aili Arkkari",
                 "date": "2018-05-09 20:30",
-                "message": "Hyvä kuva!"
+                "message": "Hyvä kuva!",
+                "avatar_url": "images/aili.jpg"
+            },
+            {
+                "author": "Kasper Kylteri",
+                "date": "2018-05-09 21:30",
+                "message": "Kiitti!",
+                "avatar_url": "images/kasper.jpg"
             }
         ]
     },
     {
-        "author": "Tiina Teekkari",
+        "author": "Aili Arkkari",
         "date": "2018-05-08 09:30",
-        "message": "Defines the columns and rows of the grid with a space-separated list of values. The values represent the track size, and the space between them represents the grid line. ",
-        "thumbs": 12
+        "message": "Onkos jollain kokemusta mistä sais halvimman sähkösopparin?",
+        "thumbs": 12,
+        "avatar_url": "images/aili.jpg",
+        "comments": [
+            {
+                "author": "Naili Narkkari",
+                "date": "2018-05-09 20:30",
+                "message": "Fortumin ydinvoimasopimus on kova!",
+                "avatar_url": "images/aili.jpg"
+            }
+        ]
     }
 ]
