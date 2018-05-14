@@ -339,6 +339,11 @@ aside{
     
 }
 
+#instructions {
+    float: right;
+    font-size: 50%;
+}
+
 
 
 @media only screen and (max-width : 780px) {
