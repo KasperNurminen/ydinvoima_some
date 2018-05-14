@@ -1,3 +1,12 @@
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
 body{
     background-color: #FFF9EB;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -82,14 +91,17 @@ aside{
 }
 #avatar{
     height: 60px;
+    width: 60px;
     border-radius: 50px;
 }
 .post_avatar{
     width: 10%;
+    height: 86%;
     border-radius: 50px;
 }
 .friend_avatar{
     width: 30%;
+    height: 94%;
     border-radius: 50px;
 }
 .post_image{
@@ -117,6 +129,15 @@ aside{
     border-bottom: 1px solid black;
     padding: 5px;
     background-color: white;
+}
+.spinner{
+    background-color: #FFF9EB;
+    text-align: center;
+    margin: 4px;
+    animation-duration: 2000ms;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
 #previous_posts{
     margin: 2px;
@@ -167,7 +188,7 @@ aside{
 
 #thumbs{
     margin-top: 14px;
-   
+    
     float: right;
 }
 
@@ -295,16 +316,19 @@ aside{
 .comment_avatar {
     float: left;
     width: 65px;
+    height: 65px;
 }
 
 .comment_avatar img{
     width: 65px;
+    height: 65px;
     border-radius: 50px;
 }
 
 .comment_body {
     float: left;
     width: 80%;
+    margin-left: 8px;
 }
 .comment_body p {
     margin-top: 10px;
@@ -312,7 +336,7 @@ aside{
 
 .comment_info {
     font-weight: bold;
-
+    
 }
 
 

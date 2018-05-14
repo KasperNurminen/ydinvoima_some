@@ -12,14 +12,13 @@ function updatePosts(e) {
         .then(function (data) {
             document.getElementById("previous_posts").innerHTML = "" // clear previous
             // data = firebase data
-
+            document.querySelector(".spinner").style.display = "none" // hide the loading icon
             var data_val = data.val()
 
 
             numOfPosts = data_val.length
-            console.log(numOfPosts)
             data_val.forEach(function (post, index) {
-                createPost(post.author, post.message, post.date, post.thumbs, post.src, post.comments, index)
+                createPost(post.author, post.message, post.date, post.thumbs, post.src, post.avatar_url, post.comments, index)
 
             })
         })
@@ -49,7 +48,6 @@ function respond() {
     if (container.children.length == 3) {
         ele_txt = document.createTextNode("Sori en ehi jutteleen pidempään, pitää mennä!")
     }
-    console.log(container.children.length)
     if (container.children.length < 4) {
         var msg_ele = document.createElement("div")
 
@@ -69,12 +67,12 @@ function openChat(ele) {
     document.getElementById("message_top").innerHTML = ele.children[1].innerHTML
     document.getElementById("message").style.display = "block"
 }
-function createPost(author, msg, time, thumbs, src, comments, index) {
+function createPost(author, msg, time, thumbs, src, avatar_url, comments, index) {
     // creates a post to the UI
     var msg_ele = document.createElement("div")
     var ele_txt = document.createTextNode(msg)
     var date = moment(time).calendar()
-    msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src = "http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png" >\
+    msg_ele.innerHTML = '<div class="author"><img class="post_avatar" src =' + avatar_url + '>\
                 <div class="author_name">' + author + '\
                             <br>\
                         <i>' + date + '</i>\
@@ -83,7 +81,7 @@ function createPost(author, msg, time, thumbs, src, comments, index) {
 
     msg_ele.appendChild(ele_txt)
     if (src) {
-        msg_ele.innerHTML += ' <img class="post_image" src="http://www.industrialprime.fi/industrialprime_fi/wp-content/uploads/2014/03/ydinvoima.jpg">'
+        msg_ele.innerHTML += ' <img class="post_image" src="' + src + '">'
     }
     if (comments) {
         var data_array = []
@@ -96,10 +94,10 @@ function createPost(author, msg, time, thumbs, src, comments, index) {
             msg_ele.innerHTML += `<div class="comments">
                 <div class="comment ` + (comment.own ? "comment_reply" : "") + `">
                     <div class="comment_avatar">
-                        <img src="http://fuuse.net/wp-content/uploads/2016/02/avatar-placeholder.png">
+                        <img src="`+ comment.avatar_url + `">
                         </div>
                         <div class="comment_body">
-                            <div class="comment_info">` + comment.author + ` <i> ` + moment(comment.date).calendar() + `</i></div>
+                            <div class="comment_info" style="cursor: pointer" onClick=respondToPerson("` + comment.author.replace(" ", "-") + `",this)>` + comment.author + ` <i> ` + moment(comment.date).calendar() + `</i></div>
                             <p>` + comment.message + `</p>
                         </div>
                     </div>
@@ -118,13 +116,18 @@ function createPost(author, msg, time, thumbs, src, comments, index) {
 
 
 }
+function respondToPerson(person, ele) {
+    var comment_field = ele.parentElement.parentElement.parentElement.parentElement.querySelector("#comment_field")
+    comment_field.value += "@" + person.split("-")[0] + " " // for example Aili-Arkkari
+}
 function newComment(ele, index) {
     if (event.key == "Enter") {
         var linkData = {
             "author": "Ykä Ydinvoimamies",
             "message": ele.value,
             "date": new Date().toISOString(),
-            "own": true
+            "own": true,
+            "avatar_url": "images/yka.png"
         }
         database.ref("/" + index).child("comments").push(linkData);
         updatePosts()
@@ -138,7 +141,8 @@ function newPost(ele) {
             "author": "Ykä Ydinvoimamies",
             "message": ele.value,
             "date": new Date().toISOString(),
-            "thumbs": 0
+            "thumbs": 0,
+            "avatar_url": "images/yka.png"
         }
 
 
@@ -154,9 +158,7 @@ function newPost(ele) {
     }
 }
 function addKarma(ele) {
-    console.log(ele.parentElement.children)
     var prevPoints = ele.parentElement.children[ele.parentElement.children.length - 1]
-    console.log(parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) + 1)
     prevPoints.innerHTML = "Peukkuja: " + (parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) + 1)
     //disable the button
     ele.style.pointerEvents = "none";
@@ -170,9 +172,7 @@ function addKarma(ele) {
     karmacount.innerHTML = parseInt(karmacount.innerHTML) + 10
 }
 function substractKarma(ele) {
-    console.log(ele.parentElement.children)
     var prevPoints = ele.parentElement.children[ele.parentElement.children.length - 1]
-    console.log(parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) + 1)
     prevPoints.innerHTML = "Peukkuja: " + (parseInt(prevPoints.innerHTML.replace(/[^0-9.]/g, "")) - 1)
     ele.style.pointerEvents = "none";
     ele.style.color = "grey";
@@ -188,7 +188,6 @@ function closeHappeningDialog() {
 }
 function openHappening(ele) {
     var name = ele.children[1].innerHTML
-    console.log(name)
     document.getElementById("dialog").style.display = "block"
     document.getElementById("happeningName").innerHTML = name
 }
